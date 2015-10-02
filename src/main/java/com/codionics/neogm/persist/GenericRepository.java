@@ -29,7 +29,7 @@ public abstract class GenericRepository<T> implements IGenericRepository<T> {
      * persist all our changes in one go.
      *
      */
-    private static final int DEPTH_ENTITY = 1;
+    private static final int DEPTH_ENTITY = 2;
 
     private Session session;
 
@@ -52,6 +52,7 @@ public abstract class GenericRepository<T> implements IGenericRepository<T> {
 
     public T createOrUpdate(T entity) {
         session.save(entity, DEPTH_ENTITY);
+//        return null;
         return findOne(((Entity) entity).getId());
     }
 
