@@ -6,15 +6,15 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
 @RelationshipEntity(type="MY_DERIVED_ROLE")
-public class DerivedARole extends Entity implements IDerivedARole {
+public class DerivedARole extends Entity implements IARole {
     @Property
     private String title;
 
     @StartNode
-    private IDerivedHomoSapiens start;
+    private IHomoSapiens start;
 
     @EndNode
-    private IDerivedHomoSapiens end;
+    private IHomoSapiens end;
 
     public String getTitle() {
         return title;
@@ -24,19 +24,19 @@ public class DerivedARole extends Entity implements IDerivedARole {
         this.title = title;
     }
 
-    public IDerivedHomoSapiens getStart() {
+    public IHomoSapiens getStart() {
         return start;
     }
 
-    public void setStart(IDerivedHomoSapiens start) {
+    public void setStart(IHomoSapiens start) {
         this.start = start;
     }
 
-    public IDerivedHomoSapiens getEnd() {
+    public IHomoSapiens getEnd() {
         return end;
     }
 
-    public void setEnd(IDerivedHomoSapiens end) {
+    public void setEnd(IHomoSapiens end) {
         this.end = end;
     }
 

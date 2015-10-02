@@ -7,8 +7,6 @@ import com.google.common.collect.Iterables;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Iterator;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -27,17 +25,17 @@ public class DerivedARoleDaoSpecs {
     }
 
     public void should_insert_data() {
-        IDerivedHomoSapiens start = new DerivedHomoSapiens("d-start");
-        IDerivedHomoSapiens end = new DerivedHomoSapiens("d-end");
-        IDerivedARole aRole = new DerivedARole("parent");
+        IHomoSapiens start = new DerivedHomoSapiens("d-start");
+        IHomoSapiens end = new DerivedHomoSapiens("d-end");
+        IARole aRole = new DerivedARole("parent");
 
-        start.setaRole(aRole);
-        end.setaRole(aRole);
+        start.setARole(aRole);
+        end.setARole(aRole);
 
         aRole.setStart(start);
         aRole.setEnd(end);
 
-        IDerivedARole created = derivedARoleDao.createOrUpdate((DerivedARole)aRole);
+        IARole created = derivedARoleDao.createOrUpdate((DerivedARole)aRole);
         assertThat(created, is(notNullValue()));
     }
 

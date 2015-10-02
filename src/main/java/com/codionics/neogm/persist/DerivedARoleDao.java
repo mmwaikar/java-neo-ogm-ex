@@ -1,7 +1,6 @@
 package com.codionics.neogm.persist;
 
 import com.codionics.neogm.domain.DerivedARole;
-import com.codionics.neogm.domain.IDerivedARole;
 
 /**
  * Created by mmwaikar on 02-10-2015.

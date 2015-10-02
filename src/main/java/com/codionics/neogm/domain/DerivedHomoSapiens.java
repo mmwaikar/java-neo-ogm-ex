@@ -4,11 +4,11 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
 @NodeEntity
-public class DerivedHomoSapiens extends Entity implements IDerivedHomoSapiens {
+public class DerivedHomoSapiens extends Entity implements IHomoSapiens {
     private String name;
 
     @Relationship(type = "MY_DERIVED_ROLE", direction = Relationship.INCOMING)
-    private IDerivedARole aRole;
+    private IARole aRole;
 
     public String getName() {
         return name;
@@ -18,11 +18,11 @@ public class DerivedHomoSapiens extends Entity implements IDerivedHomoSapiens {
         this.name = name;
     }
 
-    public IDerivedARole getaRole() {
+    public IARole getARole() {
         return aRole;
     }
 
-    public void setaRole(IDerivedARole aRole) {
+    public void setARole(IARole aRole) {
         this.aRole = aRole;
     }
 
