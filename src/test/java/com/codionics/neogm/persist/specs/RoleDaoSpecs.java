@@ -45,11 +45,12 @@ public class RoleDaoSpecs {
         Iterable<Role> roles = roleDao.findAll();
         assertThat(roles, is(notNullValue()));
         assertThat(Iterables.isEmpty(roles), is(false));
+        assertTrue(Iterables.size(roles) > 0);
         System.out.println(Iterables.size(roles));
     }
 
     @Test
-    public void should_insert_and_then_query_data() {
+    public void should_do_crud() {
         should_insert_data();
         should_find_all();
     }

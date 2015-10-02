@@ -6,18 +6,18 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
 /**
- * Created by mmwaikar on 01-10-2015.
+ * Created by mmwaikar on 02-10-2015.
  */
-@RelationshipEntity(type="PLAYED_IN")
-public class Role extends Entity {
+@RelationshipEntity(type="MY_ROLE")
+public class ARole extends Entity {
     @Property
     private String title;
 
     @StartNode
-    private Actor actor;
+    private HomoSapiens start;
 
     @EndNode
-    private Movie movie;
+    private HomoSapiens end;
 
     public String getTitle() {
         return title;
@@ -27,25 +27,24 @@ public class Role extends Entity {
         this.title = title;
     }
 
-    public Actor getActor() {
-        return actor;
+    public HomoSapiens getStart() {
+        return start;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setStart(HomoSapiens start) {
+        this.start = start;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public HomoSapiens getEnd() {
+        return end;
     }
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setEnd(HomoSapiens end) {
+        this.end = end;
     }
 
-    public Role() {}
-    public Role(String title) {
+    public ARole() {}
+    public ARole(String title) {
         this.title = title;
     }
 }
-
