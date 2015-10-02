@@ -3,15 +3,12 @@ package com.codionics.neogm.domain;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-/**
- * Created by mmwaikar on 02-10-2015.
- */
 @NodeEntity
- public class HomoSapiens extends Entity {
+public class DerivedHomoSapiens extends Entity implements IDerivedHomoSapiens {
     private String name;
 
-    @Relationship(type = "MY_ROLE", direction = Relationship.INCOMING)
-    private ARole aRole;
+    @Relationship(type = "MY_DERIVED_ROLE", direction = Relationship.INCOMING)
+    private IDerivedARole aRole;
 
     public String getName() {
         return name;
@@ -21,16 +18,16 @@ import org.neo4j.ogm.annotation.Relationship;
         this.name = name;
     }
 
-    public ARole getaRole() {
+    public IDerivedARole getaRole() {
         return aRole;
     }
 
-    public void setaRole(ARole aRole) {
+    public void setaRole(IDerivedARole aRole) {
         this.aRole = aRole;
     }
 
-    public HomoSapiens() {}
-    public HomoSapiens(String name) {
+    public DerivedHomoSapiens() {}
+    public DerivedHomoSapiens(String name) {
         this.name = name;
     }
 }

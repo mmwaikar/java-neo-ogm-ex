@@ -5,19 +5,16 @@ import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
-/**
- * Created by mmwaikar on 02-10-2015.
- */
-@RelationshipEntity(type="MY_ROLE")
-public class ARole extends Entity {
+@RelationshipEntity(type="MY_DERIVED_ROLE")
+public class DerivedARole extends Entity implements IDerivedARole {
     @Property
     private String title;
 
     @StartNode
-    private HomoSapiens start;
+    private IDerivedHomoSapiens start;
 
     @EndNode
-    private HomoSapiens end;
+    private IDerivedHomoSapiens end;
 
     public String getTitle() {
         return title;
@@ -27,25 +24,24 @@ public class ARole extends Entity {
         this.title = title;
     }
 
-    public HomoSapiens getStart() {
+    public IDerivedHomoSapiens getStart() {
         return start;
     }
 
-    public void setStart(HomoSapiens start) {
+    public void setStart(IDerivedHomoSapiens start) {
         this.start = start;
     }
 
-    public HomoSapiens getEnd() {
+    public IDerivedHomoSapiens getEnd() {
         return end;
     }
 
-    public void setEnd(HomoSapiens end) {
+    public void setEnd(IDerivedHomoSapiens end) {
         this.end = end;
     }
 
-    public ARole() {}
-    public ARole(String title) {
+    public DerivedARole() {}
+    public DerivedARole(String title) {
         this.title = title;
     }
 }
-
