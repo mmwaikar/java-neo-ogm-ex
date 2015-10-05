@@ -16,6 +16,7 @@ import static org.junit.Assert.assertTrue;
  * Created by mmwaikar on 02-10-2015.
  */
 public class DerivedARoleDaoSpecs {
+    private Long id;
     private DerivedARoleDao derivedARoleDao;
 
     @Before
@@ -44,13 +45,20 @@ public class DerivedARoleDaoSpecs {
         assertThat(derivedARoles, is(notNullValue()));
         assertThat(Iterables.isEmpty(derivedARoles), is(false));
         assertTrue(Iterables.size(derivedARoles) > 0);
+        id = Iterables.getLast(derivedARoles).getId();
         System.out.println(Iterables.size(derivedARoles));
+    }
+
+    public void should_find_by_id() {
+        DerivedARole derivedARole = derivedARoleDao.findOne(id);
+        assertThat(derivedARole, is(notNullValue()));
+        assertThat(derivedARole.getTitle(), is("parent"));
     }
 
     @Test
     public void should_do_crud() {
 //        should_insert_data();
         should_find_all();
-//        should_find_by_id();
+        should_find_by_id();
     }
 }
